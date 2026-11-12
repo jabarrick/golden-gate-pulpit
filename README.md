@@ -12,7 +12,7 @@ São Francisco, 2049. A maior parte dos púlpitos americanos é hoje ocupada por
 
 - 30 claims, 70 Bible verses (Chinese Union Version / KJV / Almeida), combo tips when the hall stands to applaud
 - A first-person view from the pulpit, with 31 pieces of Chinese decor that appear in the sanctuary
-- 16 staff to appoint, paid for in headquarters favour, including a resistance leader who rallies the flock against capitalists and loan companies
+- 16 staff to appoint, paid for in headquarters favour, including a resistance leader who has capitalists and loan companies hand over the purse
 - A Navy draft every two months: the flock pays to be spared, half are taken, and you decide how much of the money goes to Texas
 - 9 endings, an in-game wiki and debug tools
 - A keepsake photo of your church, downloadable as a PNG

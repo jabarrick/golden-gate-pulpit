@@ -256,7 +256,7 @@ PACK.zh.ui={
  wireR:['汇到一半，总部财务处回电：“够了，账户已满，本周截止收款。”余款原路退回。','总部财务处回电：“贵堂宠信已满，本周截止收款。”一分钱也没汇出去。','总监督亲自回电：“李牧师，你是有前途的。”','总部回了一个字：“收。”','总部回电：“西岸的信心，似乎软弱了。”未达配额，宠信增幅减半，另有扣减。'],
  drained:'司库看着几乎清空的账户，欲言又止。',rate:r=>`汇得越多，每一千元换来的宠信越多：本次每千元 ≈ ${r} 点`,toStaff:'安排同工',
  staffTag:'堂务 · 同工',staffH:(h,m,u)=>`总部宠信 ${h} / ${m} · 每周消耗 ${u}`,staffP:'总部人才库里的华人同工，凭宠信调用。本事越大，每周吃掉的宠信越多；宠信付不起，人就走。',
- trk:['布道','事工','律师','抗争'],inPost:n=>` · 在任 ${n}`,trkFx:[v=>`每周会众 +${v}`,v=>`每周信任 +${v}`,v=>`每周审计风险 −${v}`,v=>{const i=TRKV.re.indexOf(v);return `按现有会众，每周进账约 ${fmt(rallyGain()*v)}（会众越多人均越高）· 反抗强度每周 +${B.rzGain[i]} · 每周审计风险 +${B.rallyRisk[i]}`}],perWeek:c=>`每周 ${c} 宠信`,
+ trk:['布道','事工','律师','抗争'],inPost:n=>` · 在任 ${n}`,trkFx:[v=>`每周会众 +${v}`,v=>`每周信任 +${v}`,v=>`每周审计风险 −${v}`,v=>{const i=TRKV.re.indexOf(v);return `按现有会众：慰问金每周约 ${fmt(rallyGain()*v*B.comfort)}；安抚费有时才来，一次约 ${fmt(rallyGain()*v*B.pacify)} · 反抗强度每周 +${B.rzGain[i]} · 每周审计风险 +${B.rallyRisk[i]}`}],perWeek:c=>`每周 ${c} 宠信`,
  fire:'解聘',hire:'任命',fired:(n,b)=>`${n}收拾了桌子：${b}`,hired:(n,q)=>`<b>${n}</b>到任。${q}`,toShop:'清点堂会基金',colon:'：',
  crewWeek:(s,a)=>`同工本周：${s.ev?`布道带来 ${s.ev} 人 · `:''}${s.mi?`事工信任 +${s.mi} · `:''}${s.la?`律师压下风险 ${s.la} · `:''}${s.re?`抗争进账 ${fmt(s.re)} · `:''}${a}`,ate:n=>`吃掉宠信 ${n}`,
  quit:(n,b)=>`<b>${n}</b>发现总部的宠信付不起他的排场，走了：${b}`,
@@ -297,7 +297,7 @@ PACK.en.ui={
  wireR:['Mid-transfer, HQ finance calls back: “That will do. Your account is full. We are closed for the week.” The rest is returned.','HQ finance calls: “Your favour is full. We are closed for the week.” Not a cent leaves.','The General Overseer calls in person: “Pastor Li, you have a future.”','HQ replies with one word: “Received.”','HQ calls back: “Faith on the West Coast seems to be weakening.” Below quota: the favour gain is halved, with a penalty on top.'],
  drained:'The treasurer looks at the nearly empty account and says nothing.',rate:r=>`The more you wire, the more favour each thousand buys: about ${r} per $1,000 this time`,toStaff:'Assign staff',
  staffTag:'Church office · Staff',staffH:(h,m,u)=>`HQ favour ${h} / ${m} · weekly cost ${u}`,staffP:'Chinese co-workers from the HQ talent pool, paid for in favour. The more capable, the more favour they eat each week. When the favour runs out, they walk.',
- trk:['Evangelists','Ministry','Lawyers','Resistance'],inPost:n=>` · ${n}`,trkFx:[v=>`Flock +${v} / week`,v=>`Trust +${v} / week`,v=>`Audit risk −${v} / week`,v=>{const i=TRKV.re.indexOf(v);return `With the present flock, about ${fmt(rallyGain()*v)} a week (more per head as the flock grows) · resistance +${B.rzGain[i]} / week · audit risk +${B.rallyRisk[i]} / week`}],perWeek:c=>`${c} favour / week`,
+ trk:['Evangelists','Ministry','Lawyers','Resistance'],inPost:n=>` · ${n}`,trkFx:[v=>`Flock +${v} / week`,v=>`Trust +${v} / week`,v=>`Audit risk −${v} / week`,v=>{const i=TRKV.re.indexOf(v);return `With the present flock: consolation money about ${fmt(rallyGain()*v*B.comfort)} every week; a pacification fee only sometimes, about ${fmt(rallyGain()*v*B.pacify)} a time · resistance +${B.rzGain[i]} / week · audit risk +${B.rallyRisk[i]} / week`}],perWeek:c=>`${c} favour / week`,
  fire:'Dismiss',hire:'Appoint',fired:(n,b)=>`${n} clears the desk: ${b}`,hired:(n,q)=>`<b>${n}</b> reports for duty. ${q}`,toShop:'Count the church fund',colon:': ',
  crewWeek:(s,a)=>`Staff this week: ${s.ev?`evangelists brought ${s.ev} people · `:''}${s.mi?`ministry trust +${s.mi} · `:''}${s.la?`lawyers cut risk by ${s.la} · `:''}${s.re?`resistance takings ${fmt(s.re)} · `:''}${a}`,ate:n=>`${n} favour eaten`,
  quit:(n,b)=>`<b>${n}</b> finds HQ favour can no longer cover the style he is used to, and leaves: ${b}`,
@@ -338,7 +338,7 @@ PACK.pt.ui={
  wireR:['A meio da transferência, a tesouraria da sede liga: “Chega. A vossa conta está cheia. Fechámos por esta semana.” O resto é devolvido.','A tesouraria da sede liga: “O vosso favor está cheio. Fechámos por esta semana.” Não sai nem um cêntimo.','O Supervisor-Geral liga em pessoa: “Pastor Li, o senhor tem futuro.”','A sede responde com uma palavra: “Recebido.”','A sede liga de volta: “A fé na Costa Oeste parece estar a fraquejar.” Abaixo da quota: o ganho de favor cai para metade, com penalização.'],
  drained:'A tesoureira olha para a conta quase vazia e não diz nada.',rate:r=>`Quanto mais envias, mais favor compra cada milhar: desta vez, cerca de ${r} por $1.000`,toStaff:'Distribuir a equipa',
  staffTag:'Secretaria · Equipa',staffH:(h,m,u)=>`Favor da sede ${h} / ${m} · custo semanal ${u}`,staffP:'Colaboradores chineses da bolsa de talentos da sede, pagos em favor. Quanto mais capazes, mais favor comem por semana. Quando o favor acaba, vão-se embora.',
- trk:['Evangelistas','Obreiros','Advogados','Resistência'],inPost:n=>` · ${n}`,trkFx:[v=>`Fiéis +${v} / semana`,v=>`Confiança +${v} / semana`,v=>`Risco fiscal −${v} / semana`,v=>{const i=TRKV.re.indexOf(v);return `Com os fiéis atuais, cerca de ${fmt(rallyGain()*v)} por semana (mais por cabeça com mais fiéis) · resistência +${B.rzGain[i]} / semana · risco fiscal +${B.rallyRisk[i]} / semana`}],perWeek:c=>`${c} de favor / semana`,
+ trk:['Evangelistas','Obreiros','Advogados','Resistência'],inPost:n=>` · ${n}`,trkFx:[v=>`Fiéis +${v} / semana`,v=>`Confiança +${v} / semana`,v=>`Risco fiscal −${v} / semana`,v=>{const i=TRKV.re.indexOf(v);return `Com os fiéis atuais: subsídio de consolação de cerca de ${fmt(rallyGain()*v*B.comfort)} todas as semanas; taxa de apaziguamento só às vezes, cerca de ${fmt(rallyGain()*v*B.pacify)} de cada vez · resistência +${B.rzGain[i]} / semana · risco fiscal +${B.rallyRisk[i]} / semana`}],perWeek:c=>`${c} de favor / semana`,
  fire:'Dispensar',hire:'Nomear',fired:(n,b)=>`${n} arruma a secretária: ${b}`,hired:(n,q)=>`<b>${n}</b> apresenta-se ao serviço. ${q}`,toShop:'Contar a caixa da igreja',colon:': ',
  crewWeek:(s,a)=>`Equipa esta semana: ${s.ev?`os evangelistas trouxeram ${s.ev} pessoas · `:''}${s.mi?`obreiros, confiança +${s.mi} · `:''}${s.la?`os advogados baixaram o risco em ${s.la} · `:''}${s.re?`receita da resistência ${fmt(s.re)} · `:''}${a}`,ate:n=>`${n} de favor gastos`,
  quit:(n,b)=>`<b>${n}</b> percebe que o favor da sede já não paga o seu estilo e vai-se embora: ${b}`,
@@ -359,7 +359,7 @@ Object.assign(PACK.zh.ui,{
   ['连击打赏','每次续上连击，当场打赏 = 会众 × 2.5 × 连击数 × 打赏加成。连击跨主日累计，但计算打赏时最多按 10 连击算。'],
   ['奉献','安静传袋：每人 $40，信任 +2、风险 −2。恳切呼召：每人 $90，信任 −2。种子信心：每人 $180，信任 −8、风险 +8。实收 = 会众 × 单价 × 讲道感动 × (0.5 + 信任/100)。'],
   ['电汇与总部宠信','每周配额 = $2,000 + 会众 × ($40 + $8 × 第几周)，会众越多配额越高。宠信增加 = k × (1 + k/40)，k 是汇出的千元数，所以汇得越多越划算。未达配额：增幅减半并另有扣减。汇出超过八成：信任 −4、风险 +3。宠信上限 2000，会冲顶时总部截止收款，余款留在华埠。'],
-  ['同工','布道员加会众，事工干事加信任，律师减审计风险。五档每周分别消耗宠信 8 / 18 / 35 / 60 / 95。宠信付不起，人就走。第四条线是抗争：五位同工带会众去请资本家和放贷公司交出钱囊。每人每周进账 = 会众 × $12 ×（1 + 会众/400）× 本人的系数（0.15 / 0.3 / 0.55 / 1 / 1.6），六成是安抚费、四成是慰问金，直接进堂会基金；每周审计风险各 +1 / 2 / 3 / 4 / 6。他们在任时反抗强度每周各 +0.25 / 0.5 / 0.75 / 1 / 1.5（最高 10），每点强度让每位会众的奉献多 6%；一个都不在任时，强度每周 −2。'],
+  ['同工','布道员加会众，事工干事加信任，律师减审计风险。五档每周分别消耗宠信 8 / 18 / 35 / 60 / 95。宠信付不起，人就走。第四条线是抗争：五位同工带会众去请资本家和放贷公司交出钱囊。每人每周进账 = 会众 × $12 ×（1 + 会众/400）× 本人的系数（0.15 / 0.3 / 0.55 / 1 / 1.6），这个数是基数：慰问金定期到账，每周是基数的四成；安抚费只是有时候来，每周约四成机会，来一次是基数的 1.5 倍。两样都直接进堂会基金；每周审计风险各 +1 / 2 / 3 / 4 / 6。他们在任时反抗强度每周各 +0.25 / 0.5 / 0.75 / 1 / 1.5（最高 10），每点强度让每位会众的奉献多 6%；一个都不在任时，强度每周 −2。'],
   ['陈设、座位与粮食站','陈设买下即生效，并出现在画面里。礼拜堂能坐 300 人，每添一件陈设多坐 45 人；周末坐不下的人会离开。粮食站每拨 $3,000：信任 +2、会众 +3，每周最多三次。'],
   ['每周的自然变化','西克声势每周回升 4 + 0.6 × 周数。信任每周下降 2 + 会众/250。审计风险每周上升 2 + 本周汇款/$30,000。所以会众越多越需要事工干事，汇款越大越需要律师。'],
   ['海军征兵','每个主日代表一个月。每隔两个月（四月、六月、八月、十月的主日之后）海军来征兵，名额是会众的一半。会众为了免役交给你一大笔钱：每人 $300 ×（0.5 + 信任/100）。你用滑杆决定汇多少给德州（照常换宠信，没有配额），余下的进堂会基金。之后会众减半，信任 −4，审计风险上升。'],
@@ -378,7 +378,7 @@ Object.assign(PACK.en.ui,{
   ['Combo tips','Each time the combo continues, tips on the spot = flock × 2.5 × combo × tip bonus. The combo carries over from Sunday to Sunday, but counts as 10 at most when tips are worked out.'],
   ['The offering','Silent bags: $40 a head, trust +2, risk −2. Earnest appeal: $90 a head, trust −2. Seed faith: $180 a head, trust −8, risk +8. Actual take = flock × rate × sermon impact × (0.5 + trust/100).'],
   ['Wiring and HQ favour','Weekly quota = $2,000 + flock × ($40 + $8 × week number), so a bigger flock means a bigger quota. Favour gained = k × (1 + k/40), where k is thousands wired, so bigger wires pay better. Below quota: the gain is halved, with a penalty. Wiring more than 80%: trust −4, risk +3. Favour is capped at 2000; when a wire would pass the cap, HQ stops accepting and the rest stays in Chinatown.'],
-  ['Staff','Evangelists add flock, ministry workers add trust, lawyers cut audit risk. The five tiers cost 8 / 18 / 35 / 60 / 95 favour a week. If the favour cannot be paid, they leave. The fourth track is resistance: five workers who lead the flock to have capitalists and loan companies hand over the purse. Each brings in flock × $12 × (1 + flock/400) × a personal factor (0.15 / 0.3 / 0.55 / 1 / 1.6) a week, 60% as pacification fees and 40% as consolation money, straight into the church fund, at audit risk +1 / 2 / 3 / 4 / 6 a week. While in post they raise resistance by 0.25 / 0.5 / 0.75 / 1 / 1.5 a week (10 at most), and each point makes every member’s offering 6% bigger. With none of them in post, resistance falls by 2 a week.'],
+  ['Staff','Evangelists add flock, ministry workers add trust, lawyers cut audit risk. The five tiers cost 8 / 18 / 35 / 60 / 95 favour a week. If the favour cannot be paid, they leave. The fourth track is resistance: five workers who lead the flock to have capitalists and loan companies hand over the purse. Each brings in flock × $12 × (1 + flock/400) × a personal factor (0.15 / 0.3 / 0.55 / 1 / 1.6) a week, That figure is the base: consolation money comes regularly, 40% of the base every week; a pacification fee comes only sometimes, about a 40% chance each week, and is 1.5 times the base when it does. Both go straight into the church fund, at audit risk +1 / 2 / 3 / 4 / 6 a week. While in post they raise resistance by 0.25 / 0.5 / 0.75 / 1 / 1.5 a week (10 at most), and each point makes every member’s offering 6% bigger. With none of them in post, resistance falls by 2 a week.'],
   ['Decor, seats and the pantry','Decor takes effect when bought and appears in the picture. The sanctuary seats 300, plus 45 for each piece of decor; at the end of the week anyone without a seat leaves. Each $3,000 to the pantry: trust +2, flock +3, three times a week at most.'],
   ['What changes by itself each week','Sick’s reach rises by 4 + 0.6 × week number. Trust falls by 2 + flock/250. Audit risk rises by 2 + this week’s wire/$30,000. So a bigger flock needs ministry workers, and bigger wires need lawyers.'],
   ['The Navy draft','Each Sunday stands for a month. Every two months (after the Sundays of April, June, August and October) the Navy comes to draft half the flock. To be spared, the congregation hands you a large sum: $300 a head × (0.5 + trust/100). A slider decides how much goes to Texas (it buys favour as usual, with no quota); the rest joins the church fund. Then the flock is halved, trust falls by 4 and audit risk rises.'],
@@ -397,7 +397,7 @@ Object.assign(PACK.pt.ui,{
   ['Gorjetas de combo','Sempre que o combo continua, gorjetas na hora = fiéis × 2,5 × combo × bónus de gorjeta. O combo passa de domingo para domingo, mas conta no máximo como 10 no cálculo das gorjetas.'],
   ['A oferta','Sacos em silêncio: $40 por cabeça, confiança +2, risco −2. Apelo sentido: $90 por cabeça, confiança −2. Fé-semente: $180 por cabeça, confiança −8, risco +8. Total real = fiéis × valor × impacto do sermão × (0,5 + confiança/100).'],
   ['Remessa e favor da sede','Quota semanal = $2.000 + fiéis × ($40 + $8 × número da semana); mais fiéis, quota maior. Favor ganho = k × (1 + k/40), em que k são os milhares enviados; logo, remessas maiores rendem mais. Abaixo da quota: o ganho cai para metade, com penalização. Enviar mais de 80%: confiança −4, risco +3. O favor tem máximo de 2000; quando uma remessa o ultrapassaria, a sede deixa de aceitar e o resto fica em Chinatown.'],
-  ['Equipa','Os evangelistas trazem fiéis, os obreiros dão confiança, os advogados baixam o risco fiscal. Os cinco escalões custam 8 / 18 / 35 / 60 / 95 de favor por semana. Se o favor não chegar, vão-se embora. A quarta linha é a resistência: cinco colaboradores que levam os fiéis a pedir a capitalistas e empresas de crédito que entreguem a bolsa. Cada um traz fiéis × $12 × (1 + fiéis/400) × um fator pessoal (0,15 / 0,3 / 0,55 / 1 / 1,6) por semana, 60% em taxas de apaziguamento e 40% em subsídios de consolação, diretamente para a caixa da igreja, com risco fiscal +1 / 2 / 3 / 4 / 6 por semana. Em funções, sobem a resistência 0,25 / 0,5 / 0,75 / 1 / 1,5 por semana (máximo 10), e cada ponto aumenta 6% a oferta de cada fiel. Sem nenhum deles em funções, a resistência desce 2 por semana.'],
+  ['Equipa','Os evangelistas trazem fiéis, os obreiros dão confiança, os advogados baixam o risco fiscal. Os cinco escalões custam 8 / 18 / 35 / 60 / 95 de favor por semana. Se o favor não chegar, vão-se embora. A quarta linha é a resistência: cinco colaboradores que levam os fiéis a pedir a capitalistas e empresas de crédito que entreguem a bolsa. Cada um traz fiéis × $12 × (1 + fiéis/400) × um fator pessoal (0,15 / 0,3 / 0,55 / 1 / 1,6) por semana, Esse valor é a base: o subsídio de consolação chega regularmente, 40% da base todas as semanas; a taxa de apaziguamento só vem de vez em quando, com cerca de 40% de probabilidade por semana, e vale 1,5 vezes a base. Ambos vão diretamente para a caixa da igreja, com risco fiscal +1 / 2 / 3 / 4 / 6 por semana. Em funções, sobem a resistência 0,25 / 0,5 / 0,75 / 1 / 1,5 por semana (máximo 10), e cada ponto aumenta 6% a oferta de cada fiel. Sem nenhum deles em funções, a resistência desce 2 por semana.'],
   ['Decoração, lugares e banco alimentar','A decoração tem efeito ao ser comprada e aparece na imagem. O santuário tem 300 lugares, mais 45 por cada peça de decoração; no fim da semana, quem não tem lugar vai-se embora. Cada $3.000 para o banco alimentar: confiança +2, fiéis +3, no máximo três vezes por semana.'],
   ['O que muda sozinho em cada semana','A força de Sick sobe 4 + 0,6 × número da semana. A confiança desce 2 + fiéis/250. O risco fiscal sobe 2 + remessa da semana/$30.000. Assim, um rebanho maior pede obreiros, e remessas maiores pedem advogados.'],
   ['O recrutamento da Marinha','Cada domingo representa um mês. De dois em dois meses (depois dos domingos de abril, junho, agosto e outubro) a Marinha vem recrutar metade dos fiéis. Para escaparem, os fiéis entregam-te uma grande quantia: $300 por cabeça × (0,5 + confiança/100). Um cursor decide quanto segue para o Texas (compra favor como sempre, sem quota); o resto entra na caixa da igreja. Depois os fiéis ficam reduzidos a metade, a confiança desce 4 e o risco fiscal sobe.'],
@@ -434,9 +434,9 @@ Object.assign(PACK.pt.ui,{draftTag:'Recrutamento da Marinha',draftH:'O jipe do o
  draftGo:'Aceitar o dinheiro · entregar a lista',draftR:t=>`Os camiões arrancam com ${t} pessoas, e o santuário fica meio vazio. Os que ficam não conseguem olhar uns para os outros, nem para ti.`,tallyDraft:'Levados pela Marinha'});
 
 /* V3.0 抗争领袖 */
-Object.assign(PACK.zh.ui,{rally:(l,n,a,b)=>`${l}领着 ${n} 位会众去金融区，请资本家和放贷公司交出钱囊。对方交来安抚费 ${a}、慰问金 ${b}，都进了堂会基金。`});
-Object.assign(PACK.en.ui,{rally:(l,n,a,b)=>`${l} led ${n} of the flock to the financial district and asked the capitalists and the loan companies to hand over the purse. They handed over ${a} in pacification fees and ${b} in consolation money, all into the church fund.`});
-Object.assign(PACK.pt.ui,{rally:(l,n,a,b)=>`${l} levou ${n} fiéis ao bairro financeiro e pediu aos capitalistas e às empresas de crédito que entregassem a bolsa. Estes entregaram ${a} em taxas de apaziguamento e ${b} em subsídios de consolação, tudo para a caixa da igreja.`});
+Object.assign(PACK.zh.ui,{rally:(l,n,c)=>`${l}领着 ${n} 位会众去金融区，请资本家和放贷公司交出钱囊。这周的慰问金照例到账：${c}。`,rallyP:a=>`对方这周还交来一笔安抚费 ${a}。`,rallyNo:'安抚费这周没有动静。'});
+Object.assign(PACK.en.ui,{rally:(l,n,c)=>`${l} led ${n} of the flock to the financial district and asked the capitalists and the loan companies to hand over the purse. This week’s consolation money arrived as usual: ${c}.`,rallyP:a=>`This week they also handed over a pacification fee of ${a}.`,rallyNo:'No pacification fee this week.'});
+Object.assign(PACK.pt.ui,{rally:(l,n,c)=>`${l} levou ${n} fiéis ao bairro financeiro e pediu aos capitalistas e às empresas de crédito que entregassem a bolsa. O subsídio de consolação desta semana chegou como de costume: ${c}.`,rallyP:a=>`Esta semana entregaram também uma taxa de apaziguamento de ${a}.`,rallyNo:'Esta semana não houve taxa de apaziguamento.'});
 
 /* V3.1 反抗强度 */
 Object.assign(PACK.zh.ui,{rzLine:(i,m,p)=>`反抗强度 ${i}/${m}：每位会众的奉献 +${p}%`,rzUp:(i,m)=>`反抗强度升到 ${i}/${m}。`});
@@ -1112,7 +1112,7 @@ const rnd=n=>Math.floor(Math.random()*n);
 const shufN=n=>Array.from({length:n},(_,i)=>i).sort(()=>Math.random()-.5);
 const WEEKS=10,HQMAX=2000;
 // 平衡参数
-const B={hq0:60,tip:2.5,comboCap:10,pantryMax:3,qBase:2000,qHead:40,qWeek:8,missBase:12,missHq:.08,coleBase:4,coleWeek:.6,trustBase:2,trustDrift:250,riskBase:2,riskWire:30000,capBase:300,capItem:45,draftEvery:2,draftHead:300,rallyHead:12,rallyScale:400,rallyRisk:[1,2,3,4,6],rzGain:[.25,.5,.75,1,1.5],rzMax:10,rzOffer:.06};
+const B={hq0:60,tip:2.5,comboCap:10,pantryMax:3,qBase:2000,qHead:40,qWeek:8,missBase:12,missHq:.08,coleBase:4,coleWeek:.6,trustBase:2,trustDrift:250,riskBase:2,riskWire:30000,capBase:300,capItem:45,draftEvery:2,draftHead:300,rallyHead:12,rallyScale:400,rallyRisk:[1,2,3,4,6],rzGain:[.25,.5,.75,1,1.5],rzMax:10,rzOffer:.06,comfort:.4,pacifyP:.4,pacify:1.5};
 const capOf=()=>B.capBase+B.capItem*Object.keys(S.own).length;
 const quotaOf=()=>Math.round((B.qBase+S.mem*(B.qHead+B.qWeek*S.week))/500)*500;
 let L='zh',P,U,S;
@@ -1171,7 +1171,7 @@ STF.push({k:'rf',t:'re',lv:0,av:{hair:'short',body:'#7a5a3a',straw:1,thermos:1,s
  {k:'rm',t:'re',lv:4,av:{hair:'short',body:'#8f211b',helmet:1,fierce:1,scarf:1,fist:1,sk:'#c99a6a'}});
 // 抗争领袖：带会众声讨资本家和放贷公司。会众越多，号召力越强，到手的安抚费和慰问金越多
 function rallyGain(){return Math.round(S.mem*B.rallyHead*(1+S.mem/B.rallyScale)/100)*100;}
-function stfApply(p){if(p.t=='re'){const m=Math.round(rallyGain()*TRKV.re[p.lv]/100)*100;S.fund+=m;S.risk+=B.rallyRisk[p.lv];return m;}const v=TRKV[p.t][p.lv];if(p.t=='ev')S.mem+=v;else if(p.t=='mi')S.trust+=v;else S.risk-=v;return v;}
+function stfApply(p){if(p.t=='re'){const m=rallyGain()*TRKV.re[p.lv];S.risk+=B.rallyRisk[p.lv];return m;}const v=TRKV[p.t][p.lv];if(p.t=='ev')S.mem+=v;else if(p.t=='mi')S.trust+=v;else S.risk-=v;return v;}
 function upkeep(){return STF.filter(p=>S.crew[p.k]).reduce((a,p)=>a+COST[p.lv],0);}
 function avatar(a,sz){
  const sk=a.sk||'#f0cfa8',hc=a.hc||'#1c1a1a';
@@ -1571,6 +1571,8 @@ function staffWeek(){
  on.forEach(([p,i])=>{const c=COST[p.lv];
   if(S.hq-c<1){delete S.crew[p.k];r.quit.push([i,rnd(12)]);return;}
   S.hq-=c;r.paid+=c;r.sum[p.t]+=stfApply(p);r.kept.push(i);});
+// 慰问金定期到账；安抚费只是有时候到，来一次是一大笔
+ if(r.sum.re){const g=r.sum.re;r.cf=Math.round(g*B.comfort/100)*100;r.pf=Math.random()<B.pacifyP?Math.round(g*B.pacify/100)*100:0;r.sum.re=r.cf+r.pf;S.fund+=r.sum.re;}
  const re=r.kept.filter(i=>STF[i].t=='re'),g=re.reduce((a,i)=>a+B.rzGain[STF[i].lv],0);
  S.rz=Math.round((g?Math.min(B.rzMax,(S.rz||0)+g):Math.max(0,(S.rz||0)-2))*100)/100;r.rz=S.rz;r.ld=re.length?re[re.length-1]:-1;
  if(r.kept.length)r.sp=r.kept[rnd(r.kept.length)];
@@ -1579,7 +1581,7 @@ function staffWeek(){
 function staffWeekHtml(r){
  let h='';
  if(r.sp>=0){const T=P.STAFF[r.sp];h+=`<div class="stf on">${avatar(STF[r.sp].av,44)}<div class="i"><b>${T[0]}</b>${U.colon}${T[3+r.q]}</div></div><p class="res">${U.crewWeek(r.sum,`<span class="dn">${U.ate(r.paid)}</span>`)}</p>`;}
- if(r.sum.re)h+=`<p>${U.rally(P.STAFF[r.ld>=0?r.ld:18][0],(r.rn||0).toLocaleString('en-US'),`<span class="money">${fmt(r.sum.re*.6)}</span>`,`<span class="money">${fmt(r.sum.re*.4)}</span>`)} ${U.rzUp(Math.round((r.rz||0)*10)/10,B.rzMax)}</p>`;
+ if(r.sum.re)h+=`<p>${U.rally(P.STAFF[r.ld>=0?r.ld:18][0],(r.rn||0).toLocaleString('en-US'),`<span class="money">${fmt(r.cf)}</span>`)} ${r.pf?U.rallyP(`<span class="money">${fmt(r.pf)}</span>`):U.rallyNo} ${U.rzUp(Math.round((r.rz||0)*10)/10,B.rzMax)}</p>`;
  if(r.quit.length)h+=`<p>${r.quit.map(([i,b])=>U.quit(P.STAFF[i][0],P.BYE[b%P.BYE.length])).join('<br>')}</p>`;
  return h;
 }

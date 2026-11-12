@@ -10,6 +10,7 @@ San Francisco, 2049. Most American pulpits are now filled by Chinese pastors. Yo
 
 São Francisco, 2049. A maior parte dos púlpitos americanos é hoje ocupada por pastores chineses. Tu és o pastor John Li, da Igreja da Graça da Golden Gate, em Chinatown: todos os domingos escolhes, entre vários versículos verdadeiros, o único que responde ao pastor Sick, supremacista branco do outro lado da baía. Depois recolhes a oferta e decides quanto envias para a sede no Texas e quanto fica em Chinatown.
 
+- A four-year term, 2049 to early 2053: ten Sundays a year, forty in all, with year-end accounts in between
 - 30 claims, 70 Bible verses (Chinese Union Version / KJV / Almeida), combo tips when the hall stands to applaud
 - A first-person view from the pulpit, with 31 pieces of Chinese decor that appear in the sanctuary
 - 20 staff to appoint, paid for in headquarters favour, in four tracks: evangelists, ministry workers, lawyers, and a resistance track that catches loan-company debt collectors and has them hand over the purse

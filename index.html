@@ -1352,6 +1352,17 @@ function renderPhoto(b){
  if(!OV.url){b.innerHTML=`<p class="res">${U.photoWait}</p>`;return;}
  const im=document.createElement('img');im.src=OV.url;im.alt=U.photoH;im.id='photo';b.appendChild(im);
  const a=document.createElement('a');a.href=OV.url;a.download=`golden-gate-pulpit-${Math.min(S.week,WEEKS)}.png`;a.textContent=U.photoDl;a.className='dl';b.appendChild(a);
+ // 在 claude.ai 的页面里，下载要经过平台的 downloads 能力；其它地方（如 GitHub Pages）直接走链接
+ a.onclick=e=>{
+  if(!(window.claude&&typeof window.claude.use=='function'))return;
+  e.preventDefault();const url=OV.url,name=a.download;
+  const plain=()=>{const t=document.createElement('a');t.href=url;t.download=name;document.body.appendChild(t);t.click();t.remove();};
+  window.claude.use('downloads').then(d=>{
+   if(!d){plain();return;}
+   const bin=atob(url.split(',')[1]),u=new Uint8Array(bin.length);for(let i=0;i<bin.length;i++)u[i]=bin.charCodeAt(i);
+   return d.save({filename:name,data:u});
+  }).catch(()=>{});
+ };
  const p=document.createElement('p');p.className='res';p.textContent=U.photoHint;b.appendChild(p);
 }
 function cheat(fn){fn();S.cheat=true;fix();S.view();renderOv();}

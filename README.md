@@ -14,6 +14,7 @@ São Francisco, 2049. A maior parte dos púlpitos americanos é hoje ocupada por
 - A first-person view from the pulpit, with 31 pieces of Chinese decor that appear in the sanctuary
 - 15 staff to appoint, paid for in headquarters favour
 - 9 endings, an in-game wiki and debug tools
+- A keepsake photo of your church, downloadable as a PNG
 - 中文 / English / Português, playable on one phone screen
 - One self-contained `index.html`; no build step, no dependencies
 
